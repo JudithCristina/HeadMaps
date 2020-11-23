@@ -6,6 +6,9 @@
     <script  defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCH1t9L9InAfL9Yoa-Nh77o6RTskbSedoY&libraries=visualization&callback=initMap">
     </script>
+    <!-- <script  src="data.js">
+     
+    </script> -->
     <style type="text/css">
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -53,8 +56,8 @@
 
       function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 13,
-          center: { lat: 37.775, lng: -122.434 },
+          zoom: 6,
+          center: { lat: -9.189967, lng: -75.015152 },
           mapTypeId: "satellite",
         });
         heatmap = new google.maps.visualization.HeatmapLayer({
@@ -109,11 +112,20 @@
       let latlon =[];
       async function getData() {
        const response = await fetch(
-          "https://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/latest"
+          // "https://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/latest"
+          "https://henribarrett.com/HeadMaps/data.json", {
+	        'mode': 'cors',
+	        'headers': {
+            	'Access-Control-Allow-Origin': '*',
+        	}
+    	}
         );
+        
+        console.log(response)
         const data = response.json();
         return data;
       }
+
     //   async function getData() {
     //     await fetch(
     //       "https://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/latest"
@@ -132,7 +144,7 @@
         const data = await getData();
         console.log(data, "data")
         data.forEach((item) => {
-            latlon.push(new google.maps.LatLng(item.location.lat, item.location.lng))      
+            latlon.push(new google.maps.LatLng(item.Latitud, item.Longitud))      
       })
     }
 
