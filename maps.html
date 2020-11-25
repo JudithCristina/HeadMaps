@@ -3,9 +3,11 @@
   <head>
     <title>Heatmaps</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script  defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCH1t9L9InAfL9Yoa-Nh77o6RTskbSedoY&libraries=visualization&callback=initMap">
-    </script>
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCH1t9L9InAfL9Yoa-Nh77o6RTskbSedoY&libraries=visualization&callback=initMap"
+    ></script>
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
     <style type="text/css">
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -95,57 +97,105 @@
         heatmap.set("opacity", heatmap.get("opacity") ? null : 0.2);
       }
 
-    //   let latlon = new google.maps.MVCArray();
-    //         response.data.result.forEach(function(coord) {
-    //             latlon.push(new google.maps.LatLng(coord.lat, coord.lng));
-    //         });
-    //         let x = new google.maps.visualization.HeatmapLayer({
-    //           data: latlon,
-    //           map: self.$refs.mymap.$mapObject
-    
+      //   let latlon = new google.maps.MVCArray();
+      //         response.data.result.forEach(function(coord) {
+      //             latlon.push(new google.maps.LatLng(coord.lat, coord.lng));
+      //         });
+      //         let x = new google.maps.visualization.HeatmapLayer({
+      //           data: latlon,
+      //           map: self.$refs.mymap.$mapObject
+
       // Heatmap data: 500 Points
 
       renderData();
-      let latlon =[];
+      let latlon = [];
       async function getData() {
-       const response = await fetch(
+        const response = await fetch(
           "https://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/latest"
         );
         const data = response.json();
         return data;
       }
-    //   async function getData() {
-    //     await fetch(
-    //       "https://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/latest"
-    //     ).then((response) => {
-    //       const data =  response.json();
-    //       let latlon = new google.maps.MVCArray();
-    //       data.forEach((item) => {
-    //       latlon.push(
-    //         new google.maps.LatLng(item.location.lat, item.location.lng)
-    //       );
-    //     });
-    //       return latlon;
-    //     });
-    //   }
+      //   async function getData() {
+      //     await fetch(
+      //       "https://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/latest"
+      //     ).then((response) => {
+      //       const data =  response.json();
+      //       let latlon = new google.maps.MVCArray();
+      //       data.forEach((item) => {
+      //       latlon.push(
+      //         new google.maps.LatLng(item.location.lat, item.location.lng)
+      //       );
+      //     });
+      //       return latlon;
+      //     });
+      //   }
       async function renderData() {
         const data = await getData();
-        console.log(data, "data")
+        console.log(data, "data");
         data.forEach((item) => {
-            latlon.push(new google.maps.LatLng(item.location.lat, item.location.lng))      
-      })
-    }
+          latlon.push(
+            new google.maps.LatLng(item.location.lat, item.location.lng)
+          );
+        });
+      }
 
+      async function holaMundo() {
+        const data = await getData();
+        console.log(data, "data");
+        let total = 0;
+        for (let i = 0; i < data.length; i++) {
+          for (let j = i + 1; j < data.length; j++) {
+            // if(data[i].Latitud != data[j].Latitud && data[i].Longitud != data[j].Longitud){
+            // }
+            let pos1 = new google.maps.LatLng(
+              data[i].location.lat,
+              data[i].location.lng
+            );
+            let pos2 = new google.maps.LatLng(
+              data[j].location.lat,
+              data[j].location.lng
+            );
+            total = google.maps.geometry.spherical.computeDistanceBetween(
+              pos1,
+              pos2
+            );
+            if (total <= 1000) {
+              new window.google.maps.Marker({
+                position: {
+                  lat: data[i].location.lat,
+                  lng: data[i].location.lng,
+                },
+                map,
+                icon: "./pin.png",
+              });
+              new window.google.maps.Marker({
+                position: {
+                  lat: data[j].location.lat,
+                  lng: data[j].location.lng,
+                },
+                map,
+                icon: "./pin.png",
+              });
+            }
+            console.log("Distancias", total);
+          }
+        }
+      }
+      holaMundo();
+      // var loc1 = new google.maps.LatLng(37.772323, -122.214897);
+      //         var loc2 = new google.maps.LatLng(34.1633766,-81.6487862);
 
-    //   function getPoints() {
-    //     return [
-    //       new google.maps.LatLng(37.782551, -122.445368),
-    //       new google.maps.LatLng(37.782745, -122.444586),
-    //       new google.maps.LatLng(37.776822, -122.438391),
-    //       new google.maps.LatLng(37.776814, -122.438412),
+      //         console.log(google.maps.geometry.spherical.computeDistanceBetween(loc1, loc2))
+      //   function getPoints() {
+      //     return [
+      //       new google.maps.LatLng(37.782551, -122.445368),
+      //       new google.maps.LatLng(37.782745, -122.444586),
+      //       new google.maps.LatLng(37.776822, -122.438391),
+      //       new google.maps.LatLng(37.776814, -122.438412),
 
-    //     ];
-    //   }
+      //     ];
+      //   }
     </script>
   </head>
   <body>
