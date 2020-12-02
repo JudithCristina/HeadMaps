@@ -1,210 +1,227 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Heatmaps</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCH1t9L9InAfL9Yoa-Nh77o6RTskbSedoY&libraries=visualization&callback=initMap"
-    ></script>
-    <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
-    <style type="text/css">
-      /* Always set the map height explicitly to define the size of the div
+
+<head>
+  <title>Heatmaps</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCH1t9L9InAfL9Yoa-Nh77o6RTskbSedoY&libraries=visualization&callback=initMap">
+    </script>
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
+  <!-- <script  src="data.js">
+     
+    </script> -->
+  <style type="text/css">
+    /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map {
-        height: 100%;
-      }
+    #map {
+      height: 100%;
+    }
 
-      /* Optional: Makes the sample page fill the window. */
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
-      #floating-panel {
-        position: absolute;
-        top: 10px;
-        left: 25%;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-        text-align: center;
-        font-family: "Roboto", "sans-serif";
-        line-height: 30px;
-        padding-left: 10px;
-      }
+    #floating-panel {
+      position: absolute;
+      top: 10px;
+      left: 25%;
+      z-index: 5;
+      background-color: #fff;
+      padding: 5px;
+      border: 1px solid #999;
+      text-align: center;
+      font-family: "Roboto", "sans-serif";
+      line-height: 30px;
+      padding-left: 10px;
+    }
 
-      #floating-panel {
-        background-color: #fff;
-        border: 1px solid #999;
-        left: 25%;
-        padding: 5px;
-        position: absolute;
-        top: 10px;
-        z-index: 5;
-      }
-    </style>
-    <script>
-      // This example requires the Visualization library. Include the libraries=visualization
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
-      let map, heatmap;
+    #floating-panel {
+      background-color: #fff;
+      border: 1px solid #999;
+      left: 25%;
+      padding: 5px;
+      position: absolute;
+      top: 10px;
+      z-index: 5;
+    }
+  </style>
+  <script>
+    // This example requires the Visualization library. Include the libraries=visualization
+    // parameter when you first load the API. For example:
+    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
+    let map, heatmap;
 
-      function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 13,
-          center: { lat: 37.775, lng: -122.434 },
-          mapTypeId: "satellite",
-        });
-        heatmap = new google.maps.visualization.HeatmapLayer({
-          data: latlon,
-          map: map,
-        });
-      }
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 6,
+        center: { lat: -9.189967, lng: -75.015152 },
+        mapTypeId: "satellite",
+      });
+      heatmap = new google.maps.visualization.HeatmapLayer({
+        data: latlon,
+        map: map,
+      });
+    }
 
-      function toggleHeatmap() {
-        heatmap.setMap(heatmap.getMap() ? null : map);
-      }
+    function toggleHeatmap() {
+      heatmap.setMap(heatmap.getMap() ? null : map);
+    }
 
-      function changeGradient() {
-        const gradient = [
-          "rgba(0, 255, 255, 0)",
-          "rgba(0, 255, 255, 1)",
-          "rgba(0, 191, 255, 1)",
-          "rgba(0, 127, 255, 1)",
-          "rgba(0, 63, 255, 1)",
-          "rgba(0, 0, 255, 1)",
-          "rgba(0, 0, 223, 1)",
-          "rgba(0, 0, 191, 1)",
-          "rgba(0, 0, 159, 1)",
-          "rgba(0, 0, 127, 1)",
-          "rgba(63, 0, 91, 1)",
-          "rgba(127, 0, 63, 1)",
-          "rgba(191, 0, 31, 1)",
-          "rgba(255, 0, 0, 1)",
-        ];
-        heatmap.set("gradient", heatmap.get("gradient") ? null : gradient);
-      }
+    function changeGradient() {
+      const gradient = [
+        "rgba(0, 255, 255, 0)",
+        "rgba(0, 255, 255, 1)",
+        "rgba(0, 191, 255, 1)",
+        "rgba(0, 127, 255, 1)",
+        "rgba(0, 63, 255, 1)",
+        "rgba(0, 0, 255, 1)",
+        "rgba(0, 0, 223, 1)",
+        "rgba(0, 0, 191, 1)",
+        "rgba(0, 0, 159, 1)",
+        "rgba(0, 0, 127, 1)",
+        "rgba(63, 0, 91, 1)",
+        "rgba(127, 0, 63, 1)",
+        "rgba(191, 0, 31, 1)",
+        "rgba(255, 0, 0, 1)",
+      ];
+      heatmap.set("gradient", heatmap.get("gradient") ? null : gradient);
+    }
 
-      function changeRadius() {
-        heatmap.set("radius", heatmap.get("radius") ? null : 20);
-      }
+    function changeRadius() {
+      heatmap.set("radius", heatmap.get("radius") ? null : 20);
+    }
 
-      function changeOpacity() {
-        heatmap.set("opacity", heatmap.get("opacity") ? null : 0.2);
-      }
+    function changeOpacity() {
+      heatmap.set("opacity", heatmap.get("opacity") ? null : 0.2);
+    }
 
-      //   let latlon = new google.maps.MVCArray();
-      //         response.data.result.forEach(function(coord) {
-      //             latlon.push(new google.maps.LatLng(coord.lat, coord.lng));
-      //         });
-      //         let x = new google.maps.visualization.HeatmapLayer({
-      //           data: latlon,
-      //           map: self.$refs.mymap.$mapObject
+    //   let latlon = new google.maps.MVCArray();
+    //         response.data.result.forEach(function(coord) {
+    //             latlon.push(new google.maps.LatLng(coord.lat, coord.lng));
+    //         });
+    //         let x = new google.maps.visualization.HeatmapLayer({
+    //           data: latlon,
+    //           map: self.$refs.mymap.$mapObject
 
-      // Heatmap data: 500 Points
+    // Heatmap data: 500 Points
 
-      renderData();
-      let latlon = [];
-      async function getData() {
-        const response = await fetch(
-          "https://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/latest"
-        );
-        const data = response.json();
-        return data;
-      }
-      //   async function getData() {
-      //     await fetch(
-      //       "https://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/latest"
-      //     ).then((response) => {
-      //       const data =  response.json();
-      //       let latlon = new google.maps.MVCArray();
-      //       data.forEach((item) => {
-      //       latlon.push(
-      //         new google.maps.LatLng(item.location.lat, item.location.lng)
-      //       );
-      //     });
-      //       return latlon;
-      //     });
-      //   }
-      async function renderData() {
-        const data = await getData();
-        console.log(data, "data");
-        data.forEach((item) => {
-          latlon.push(
-            new google.maps.LatLng(item.location.lat, item.location.lng)
-          );
-        });
-      }
+    renderData();
+    let latlon = [];
 
-      async function holaMundo() {
-        const data = await getData();
-        console.log(data, "data");
-        let total = 0;
-        for (let i = 0; i < data.length; i++) {
-          for (let j = i + 1; j < data.length; j++) {
-            // if(data[i].Latitud != data[j].Latitud && data[i].Longitud != data[j].Longitud){
-            // }
-            let pos1 = new google.maps.LatLng(
-              data[i].location.lat,
-              data[i].location.lng
-            );
-            let pos2 = new google.maps.LatLng(
-              data[j].location.lat,
-              data[j].location.lng
-            );
-            total = google.maps.geometry.spherical.computeDistanceBetween(
-              pos1,
-              pos2
-            );
-            if (total <= 1000) {
-              new window.google.maps.Marker({
+    async function getData() {
+      const response = await fetch("data.json");
+      const data = response.json();
+      return data
+
+    }
+
+    // async function renderData() {
+    //   const data = await getData();
+    //   console.log(data, "data")
+    //   data.forEach((item) => {
+    //     latlon.push(new google.maps.LatLng(item.Latitud, item.Longitud, parseInt(item.Peso)))
+    //     // console.log(parseInt(item.Peso)); 
+    //     if (item.Peso === "  -  ") {
+    //       latlon.push(new google.maps.LatLng(item.Latitud, item.Longitud))
+    //     } else {
+    //       latlon.push(new google.maps.LatLng(item.Latitud, item.Longitud, parseInt(item.Peso)))
+    //     }
+    //   })
+    // }
+
+    async function renderData() {
+      const data = await getData();
+      console.log(data, "data")
+      let total = 0;
+      for (let i = 0; i < data.length; i++) {
+        for (let j = i + 1; j < data.length; j++) {
+          // console.log(data[i],data[j]);
+          let pos1 = new google.maps.LatLng(data[i].Latitud, data[i].Longitud);
+          let pos2 = new google.maps.LatLng(data[j].Latitud, data[j].Longitud);
+          total = google.maps.geometry.spherical.computeDistanceBetween(pos1, pos2);
+          console.log('Distancias', total)
+          if (total < 100000) {
+            console.log("hola");
+            new window.google.maps.Marker({
                 position: {
-                  lat: data[i].location.lat,
-                  lng: data[i].location.lng,
+                  lat: data[i].Latitud,
+                  lng: data[i].Longitud,
                 },
                 map,
-                icon: "./pin.png",
+                icon: "./tienda.png",
               });
               new window.google.maps.Marker({
                 position: {
-                  lat: data[j].location.lat,
-                  lng: data[j].location.lng,
+                  lat: data[j].Latitud,
+                  lng: data[j].Longitud,
                 },
                 map,
-                icon: "./pin.png",
+                icon: "./tienda.png",
               });
-            }
-            console.log("Distancias", total);
+            
           }
         }
       }
-      holaMundo();
-      // var loc1 = new google.maps.LatLng(37.772323, -122.214897);
-      //         var loc2 = new google.maps.LatLng(34.1633766,-81.6487862);
+    }
+    // async function holaMundo() {
+    //     const data = await getData();
+    //     console.log(data, "data");
+    //     let total = 0;
+    //     for (let i = 0; i < data.length; i++) {
+    //       for (let j = i + 1; j < data.length; j++) {
+    //         // if(data[i].Latitud != data[j].Latitud && data[i].Longitud != data[j].Longitud){
+    //         // }
+    //         let pos1 = new google.maps.LatLng(
+    //           data[i].location.lat,
+    //           data[i].location.lng
+    //         );
+    //         let pos2 = new google.maps.LatLng(
+    //           data[j].location.lat,
+    //           data[j].location.lng
+    //         );
+    //         total = google.maps.geometry.spherical.computeDistanceBetween(
+    //           pos1,
+    //           pos2
+    //         );
+    //         if (total >= 100) {
+    //           new window.google.maps.Marker({
+    //             position: {
+    //               lat: data[i].location.lat,
+    //               lng: data[i].location.lng,
+    //             },
+    //             map,
+    //             icon: "./pin.png",
+    //           });
+    //           new window.google.maps.Marker({
+    //             position: {
+    //               lat: data[j].location.lat,
+    //               lng: data[j].location.lng,
+    //             },
+    //             map,
+    //             icon: "./pin.png",
+    //           });
+    //         }
+    //         console.log("Distancias", total);
+    //       }
+    //     }
+    //   }
+    //   holaMundo();
+  </script>
+</head>
 
-      //         console.log(google.maps.geometry.spherical.computeDistanceBetween(loc1, loc2))
-      //   function getPoints() {
-      //     return [
-      //       new google.maps.LatLng(37.782551, -122.445368),
-      //       new google.maps.LatLng(37.782745, -122.444586),
-      //       new google.maps.LatLng(37.776822, -122.438391),
-      //       new google.maps.LatLng(37.776814, -122.438412),
+<body>
+  <div id="floating-panel">
+    <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+    <button onclick="changeGradient()">Change gradient</button>
+    <button onclick="changeRadius()">Change radius</button>
+    <button onclick="changeOpacity()">Change opacity</button>
+  </div>
+  <div id="map"></div>
+</body>
 
-      //     ];
-      //   }
-    </script>
-  </head>
-  <body>
-    <div id="floating-panel">
-      <button onclick="toggleHeatmap()">Toggle Heatmap</button>
-      <button onclick="changeGradient()">Change gradient</button>
-      <button onclick="changeRadius()">Change radius</button>
-      <button onclick="changeOpacity()">Change opacity</button>
-    </div>
-    <div id="map"></div>
-  </body>
 </html>
