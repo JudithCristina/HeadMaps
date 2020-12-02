@@ -67,15 +67,18 @@
       const data = response.json();
       return data
     }
+    async function getData2() {
+      const response = await fetch("data2.json")
+      const data2 = response.json();
+      return data2
+    }
 
-    async function getDataTiendas() {
-        const response = await fetch("data2.json")
-        const data = response.json();
-        return data
-      }
-
-      
-   
+    // async function getDataTiendas() {
+    //     const response = await fetch("data2.json")
+    //     const data = response.json();
+    //     return data
+    //   }
+  
 
     // async function renderData() {
     //   const data = await getData();
@@ -122,48 +125,75 @@
     }
 
 
-    let tiendas = []
+    let totalTiendas = 0;
     let sumaPesos = 0;
     let total = 0;
 
     async function holi() {
       // const data = await prueba();
       const data = await getData();
-      const data2= await getDataTiendas();
-      console.log(data2);
-      data2.forEach(element => {
-        console.log(data2[element]);
-      });
+      const data2 = await getData2();   
+      // console.log(data2, "klji")
 
-      for (let i = 0; i < data.length; i++) {
-            console.log(data2.length);
-            let pos1 = new google.maps.LatLng(data[i].Latitud, data[i].Longitud, data[i].Peso);
-            let pos2 = new google.maps.LatLng(data2.latitud[element], data2[element].longitud);
-            total = google.maps.geometry.spherical.computeDistanceBetween(pos1, pos2);
-            console.log(total);
+      data2.forEach((item)=>{
         
-        // console.log(data[i]);
-        
-        // console.log(total);
+        let pos2 = new google.maps.LatLng(item.latitud, item.longitud);
+        // console.log( pos2, ":)")
+        for (let j = 0; j < data.length; j++) {
 
-        // if (total < 2000) {
-        //   new window.google.maps.Marker({
-        //     position: {
-        //       lat: data[i].Latitud,
-        //       lng: data[i].Longitud,
-        //     },
-        //     map,
-        //     icon: "./tienda.png",
-        //   })
+          // console.log(data[j]);
+          let pos1 = new google.maps.LatLng(data[j].Latitud, data[j].Longitud, data[j].Peso);
+          total = google.maps.geometry.spherical.computeDistanceBetween(pos1, pos2);
+          // console.log(total, );
+          if (total < 2000) {
+            new window.google.maps.Marker({
+              position: {
+                lat: data[j].Latitud,
+                lng: data[j].Longitud,
+              },
+              map,
+              icon: "./tienda.png",
+            })
+            totalTtiendas=totalTiendas+1;
+            // let pesos = parseInt(data[i].Peso)
+            // // isNaN(numeros) ? 0 : numeros;
+            // // console.log(pesos);
+            // tiendas.push(isNaN(pesos) ? 0 : pesos)
+  
+          }
+        }
+      })
+      // for (let i = 0; i<data2.length;i++){
+      //   // console.log(data2[i])
+      //   let pos2 = new google.maps.LatLng(data2[i].latitud, data2[i].longitud);
+      //   for (let j = 0; j < data.length; j++) {
 
-        //   let pesos = parseInt(data[i].Peso)
-        //   // isNaN(numeros) ? 0 : numeros;
-        //   // console.log(pesos);
-        //   tiendas.push(isNaN(pesos) ? 0 : pesos)
+      //     // console.log(data[j]);
+      //     let pos1 = new google.maps.LatLng(data[j].Latitud, data[j].Longitud, data[j].Peso);
+      //     total = google.maps.geometry.spherical.computeDistanceBetween(pos1, pos2);
+      //     // console.log(total);
+  
+      //     if (total < 2000) {
+      //       new window.google.maps.Marker({
+      //         position: {
+      //           lat: data[j].Latitud,
+      //           lng: data[j].Longitud,
+      //         },
+      //         map,
+      //         icon: "./tienda.png",
+      //       })
+  
+      //       // let pesos = parseInt(data[i].Peso)
+      //       // // isNaN(numeros) ? 0 : numeros;
+      //       // // console.log(pesos);
+      //       // tiendas.push(isNaN(pesos) ? 0 : pesos)
+  
+      //     }
+      //   }
 
-        // }
-    }
-     
+      // }   // console.log(data);
+
+
       // console.log(tiendas);
       console.log(tiendas.length, "cantidad de tiendas");
 
