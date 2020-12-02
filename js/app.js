@@ -68,12 +68,14 @@
       return data
     }
 
-    // async function getDataTiendas() {
-    //     const response = await fetch("data2.json")
-    //     const data = response.json();
-    //     return data
-    //   }
-  
+    async function getDataTiendas() {
+        const response = await fetch("data2.json")
+        const data = response.json();
+        return data
+      }
+
+      
+   
 
     // async function renderData() {
     //   const data = await getData();
@@ -127,32 +129,41 @@
     async function holi() {
       // const data = await prueba();
       const data = await getData();
-      // console.log(data);
+      const data2= await getDataTiendas();
+      console.log(data2);
+      data2.forEach(element => {
+        console.log(data2[element]);
+      });
 
       for (let i = 0; i < data.length; i++) {
+            console.log(data2.length);
+            let pos1 = new google.maps.LatLng(data[i].Latitud, data[i].Longitud, data[i].Peso);
+            let pos2 = new google.maps.LatLng(data2.latitud[element], data2[element].longitud);
+            total = google.maps.geometry.spherical.computeDistanceBetween(pos1, pos2);
+            console.log(total);
+        
         // console.log(data[i]);
-        let pos1 = new google.maps.LatLng(data[i].Latitud, data[i].Longitud, data[i].Peso);
-        let pos2 = new google.maps.LatLng(-12.11190753134506, -76.81675425249055);
-        total = google.maps.geometry.spherical.computeDistanceBetween(pos1, pos2);
+        
         // console.log(total);
 
-        if (total < 2000) {
-          new window.google.maps.Marker({
-            position: {
-              lat: data[i].Latitud,
-              lng: data[i].Longitud,
-            },
-            map,
-            icon: "./tienda.png",
-          })
+        // if (total < 2000) {
+        //   new window.google.maps.Marker({
+        //     position: {
+        //       lat: data[i].Latitud,
+        //       lng: data[i].Longitud,
+        //     },
+        //     map,
+        //     icon: "./tienda.png",
+        //   })
 
-          let pesos = parseInt(data[i].Peso)
-          // isNaN(numeros) ? 0 : numeros;
-          // console.log(pesos);
-          tiendas.push(isNaN(pesos) ? 0 : pesos)
+        //   let pesos = parseInt(data[i].Peso)
+        //   // isNaN(numeros) ? 0 : numeros;
+        //   // console.log(pesos);
+        //   tiendas.push(isNaN(pesos) ? 0 : pesos)
 
-        }
-      }
+        // }
+    }
+     
       // console.log(tiendas);
       console.log(tiendas.length, "cantidad de tiendas");
 
