@@ -58,7 +58,7 @@
     // Heatmap data: 500 Points
 
     // renderData();
-    holi()
+    tiendasCercaDelPuntoCentrico()
     prueba()
     let latlon = [];
 
@@ -125,26 +125,27 @@
     }
 
 
-    let tiendas = []
+    let totalTiendas = [];
     let sumaPesos = 0;
     let total = 0;
+  
+  
 
-    async function holi() {
-      // const data = await prueba();
+    async function tiendasCercaDelPuntoCentrico() {
       const data = await getData();
       const data2 = await getData2();   
-      // console.log(data2, "klji")
 
       data2.forEach((item)=>{
-        
+        let tienda= {};
+        let  pesoTotal = 0
+        tienda.namePunto=item.nombreDelEpicentro;
+        console.log(item)
         let pos2 = new google.maps.LatLng(item.latitud, item.longitud);
-        // console.log( pos2, ":)")
-        for (let j = 0; j < data.length; j++) {
+        let numeroTiendas=0;
 
-          // console.log(data[j]);
+        for (let j = 0; j < data.length; j++) {
           let pos1 = new google.maps.LatLng(data[j].Latitud, data[j].Longitud, data[j].Peso);
           total = google.maps.geometry.spherical.computeDistanceBetween(pos1, pos2);
-          // console.log(total, );
           if (total < 2000) {
             new window.google.maps.Marker({
               position: {
@@ -152,16 +153,22 @@
                 lng: data[j].Longitud,
               },
               map,
-              icon: "./tienda.png",
+              icon: "https://images.emojiterra.com/google/android-10/512px/1f7e2.png",
             })
-  
-            // let pesos = parseInt(data[i].Peso)
-            // // isNaN(numeros) ? 0 : numeros;
-            // // console.log(pesos);
-            // tiendas.push(isNaN(pesos) ? 0 : pesos)
-  
+            let pesoPunto=0
+            if( isNaN(parseInt(data[j].Peso))){
+              pesoPunto= 1;
+              pesoTotal=  pesoTotal + pesoPunto
+            } else{
+              pesoPunto= parseInt(data[j].Peso)
+              pesoTotal=  pesoTotal + pesoPunto
+            }
+            numeroTiendas=numeroTiendas+1
           }
         }
+        tienda.totalPeso=pesoTotal
+        tienda.numeroTiendas=numeroTiendas
+        totalTiendas.push(tienda)
       })
       // for (let i = 0; i<data2.length;i++){
       //   // console.log(data2[i])
@@ -195,17 +202,16 @@
 
 
       // console.log(tiendas);
-      console.log(tiendas.length, "cantidad de tiendas");
+      // console.log(tiendas.length, "cantidad de tiendas");
 
-      for (let i = 0; i < tiendas.length; i++) {
-        // console.log(i, tiendas[i]);
-        sumaPesos += tiendas[i]
-        // console.log(sumaPesos, "suma de pesos ");
-      }
-      console.log(sumaPesos, "suma de pesos ");
+      // for (let i = 0; i < tiendas.length; i++) {
+      //   // console.log(i, tiendas[i]);
+      //   sumaPesos += tiendas[i]
+      //   // console.log(sumaPesos, "suma de pesos ");
+      // }
+      // console.log(sumaPesos, "suma de pesos ");
 
     }
-
 
 
 

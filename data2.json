@@ -1,251 +1,251 @@
 [
   {
-    "Nombre del Epicentro": "Plaza de Armas de Cieneguilla",
+    "nombreDelEpicentro": "Plaza de Armas de Cieneguilla",
     "latitud": -12.1117711611539,
     "longitud":-76.816067607628
   },
   {
-    "Nombre del Epicentro": "Av. La Molina ",
+    "nombreDelEpicentro": "Av. La Molina ",
     "latitud": -12.0842590033788,
     "longitud": -76.8758292883119
   },
   {
-    "Nombre del Epicentro": "Mercado Grumete",
+    "nombreDelEpicentro": "Mercado Grumete",
     "latitud":-12.0673232636547,
     "longitud": -76.9748210981104
   },
   {
-    "Nombre del Epicentro": "Canada Con Aviación ",
+    "nombreDelEpicentro": "Canada Con Aviación ",
     "latitud": -12.0840060941210,
     "longitud":-77.0013477637315
   },
   {
-    "Nombre del Epicentro": "Mercado Rospigliosi",
+    "nombreDelEpicentro": "Mercado Rospigliosi",
     "latitud": -12.078827269808,
     "longitud": -77.0318192245384
   },
   {
-    "Nombre del Epicentro": "Planet Café ",
+    "nombreDelEpicentro": "Planet Café ",
     "latitud": -12.0387021767887,
     "longitud": -77.0559974091973
   },
   {
-    "Nombre del Epicentro": "Centro de Salud Villa Maria Perpetuo ",
+    "nombreDelEpicentro": "Centro de Salud Villa Maria Perpetuo ",
     "latitud": -12.0373726675511,
     "longitud":-77.0539746306417
   },
   {
-    "Nombre del Epicentro": "Mercado 20 de Enero ",
+    "nombreDelEpicentro": "Mercado 20 de Enero ",
     "latitud": -12.042170287579,
     "longitud": -77.0849024999585
   },
   {
-    "Nombre del Epicentro": "Mercado Sarita Colonia ",
+    "nombreDelEpicentro": "Mercado Sarita Colonia ",
     "latitud": -12.1393188257964,
     "longitud": -76.9604209334964
   },
   {
-    "Nombre del Epicentro": "Mercado La Paradito de Castilla",
+    "nombreDelEpicentro": "Mercado La Paradito de Castilla",
     "latitud": -12.0402280207955,
     "longitud": -77.1244020271153
   },
   {
-    "Nombre del Epicentro": "Centro De Salud Nestor Gambetta ",
+    "nombreDelEpicentro": "Centro De Salud Nestor Gambetta ",
     "latitud": -12.0420216946875,
     "longitud": -77.1198998496787
   },
   {
-    "Nombre del Epicentro": "Comisaría Dulanto ",
+    "nombreDelEpicentro": "Comisaría Dulanto ",
     "latitud": -12.0451502276613,
     "longitud": -77.1045167171478
   },
   {
-    "Nombre del Epicentro": "Centro de Salud Acapulco ",
+    "nombreDelEpicentro": "Centro de Salud Acapulco ",
     "latitud": -12.022257282226,
     "longitud": -77.135661818995
   },
   {
-    "Nombre del Epicentro": "Atento",
+    "nombreDelEpicentro": "Atento",
     "latitud": -12.0446137975215,
     "longitud": -77.0846596073494
   },
   {
-    "Nombre del Epicentro": "Monsefú ",
+    "nombreDelEpicentro": "Monsefú ",
     "latitud": -12.0395353206454,
     "longitud": -77.0608487287939
   },
   {
-    "Nombre del Epicentro": "San Genaro ",
+    "nombreDelEpicentro": "San Genaro ",
     "latitud": -12.1921142124406,
     "longitud": -77.0186887674254
   },
   {
-    "Nombre del Epicentro": " Las Delicias ",
+    "nombreDelEpicentro": " Las Delicias ",
     "latitud": -12.1980373931332,
     "longitud": -76.9947178631702
   },
   {
-    "Nombre del Epicentro": "Mercado Mariano Melgar ",
+    "nombreDelEpicentro": "Mercado Mariano Melgar ",
     "latitud": -12.2161419953296,
     "longitud": -76.9301206492712
   },
   {
-    "Nombre del Epicentro": "Comisaría de Villa Maria del Triunfo ",
+    "nombreDelEpicentro": "Comisaría de Villa Maria del Triunfo ",
     "latitud": -12.1656292789776,
     "longitud": -76.9468983790719
   },
   {
-    "Nombre del Epicentro": "Colegio Virgen de la Merced",
+    "nombreDelEpicentro": "Colegio Virgen de la Merced",
     "latitud": -12.1670536807756,
     "longitud": -76.9577908576275
   },
   {
-    "Nombre del Epicentro": "Parroquia San Gabriel ",
+    "nombreDelEpicentro": "Parroquia San Gabriel ",
     "latitud": -12.1556178249795,
     "longitud": -76.9581351361832
   },
   {
-    "Nombre del Epicentro": "Iglesia Alianza Cristiana y Misionera Pamplona  Alta ",
+    "nombreDelEpicentro": "Iglesia Alianza Cristiana y Misionera Pamplona  Alta ",
     "latitud": -12.1356381068083,
     "longitud": -76.9679189189942
   },
   {
-    "Nombre del Epicentro": "San Luis",
+    "nombreDelEpicentro": "San Luis",
     "latitud": -12.1077387880199,
     "longitud": -76.9926592030935
   },
   {
-    "Nombre del Epicentro": "Puesto de Salud San Juan Masias",
+    "nombreDelEpicentro": "Puesto de Salud San Juan Masias",
     "latitud": -12.0840795318335,
     "longitud": -77.0018520189950
   },
   {
-    "Nombre del Epicentro": "Mercado Lobaton ",
+    "nombreDelEpicentro": "Mercado Lobaton ",
     "latitud": -12.0861459609967,
     "longitud": -77.0323420901595
   },
   {
-    "Nombre del Epicentro": "Grifo Valeria Victoria ",
+    "nombreDelEpicentro": "Grifo Valeria Victoria ",
     "latitud": -12.0549822777795,
     "longitud": -77.0038382539336
   },
   {
-    "Nombre del Epicentro": "Mercado Ancieta Alta",
+    "nombreDelEpicentro": "Mercado Ancieta Alta",
     "latitud": -12.0425523535685,
     "longitud": -77.0006995134523
   },
   {
-    "Nombre del Epicentro": "Mercado Caja de Agua ",
+    "nombreDelEpicentro": "Mercado Caja de Agua ",
     "latitud": -12.0259076969934,
     "longitud": -77.0140582036542
   },
   {
-    "Nombre del Epicentro": "Comisaria de Zarate",
+    "nombreDelEpicentro": "Comisaria de Zarate",
     "latitud": -12.026765651344700,
     "longitud": -77.00089339385590
   },
   {
-    "Nombre del Epicentro": "Britanico San. Juan ",
+    "nombreDelEpicentro": "Britanico San. Juan ",
     "latitud": -12.008859600293800,
     "longitud": -77.00390476502080
   },
   {
-    "Nombre del Epicentro": "Los Postes",
+    "nombreDelEpicentro": "Los Postes",
     "latitud": -11.996255850230600,
     "longitud": -77.00508815762990
   },
   {
-    "Nombre del Epicentro": "Villa Mercedes",
+    "nombreDelEpicentro": "Villa Mercedes",
     "latitud": -11.971707636636200,
     "longitud": -76.9912546763877
   },
   {
-    "Nombre del Epicentro": "Centro de Salud Jaime Zubiate ",
+    "nombreDelEpicentro": "Centro de Salud Jaime Zubiate ",
     "latitud": -11.962999150479600,
     "longitud": -76.9882889864659
   },
   {
-    "Nombre del Epicentro": "La Catolica San Juan ",
+    "nombreDelEpicentro": "La Catolica San Juan ",
     "latitud": -11.955296792438500,
     "longitud": -76.99018553064290
   },
   {
-    "Nombre del Epicentro": "Mercado Señor de Los Milagros",
+    "nombreDelEpicentro": "Mercado Señor de Los Milagros",
     "latitud": -11.942276584421400,
     "longitud": -76.97956771885740
   },
   {
-    "Nombre del Epicentro": "Centro de Salud Montenegro ",
+    "nombreDelEpicentro": "Centro de Salud Montenegro ",
     "latitud": -11.936858699271800,
     "longitud": -76.97063191899710
   },
   {
-    "Nombre del Epicentro": "Plaza de Armas de Jicamarca",
+    "nombreDelEpicentro": "Plaza de Armas de Jicamarca",
     "latitud": -11.924825772601100,
     "longitud": -76.95986586927710
   },
   {
-    "Nombre del Epicentro": "Parque Manhattan",
+    "nombreDelEpicentro": "Parque Manhattan",
     "latitud": -11.902728722905700,
     "longitud": -77.03866978461900
   },
   {
-    "Nombre del Epicentro": "Hospital Bernales",
+    "nombreDelEpicentro": "Hospital Bernales",
     "latitud": -11.911633533137400,
     "longitud": -77.0381599692773
   },
   {
-    "Nombre del Epicentro": "Los Geranios ",
+    "nombreDelEpicentro": "Los Geranios ",
     "latitud": -11.89769102125790,
     "longitud": -77.0413033036562
   },
   {
-    "Nombre del Epicentro": "Mercado Tupac Amaru",
+    "nombreDelEpicentro": "Mercado Tupac Amaru",
     "latitud": -11.926163885663000,
     "longitud": -77.04289630317760
   },
   {
-    "Nombre del Epicentro": "Haya de la torre",
+    "nombreDelEpicentro": "Haya de la torre",
     "latitud": -11.976075736878900,
     "longitud": -77.0524158055028
   },
   {
-    "Nombre del Epicentro": "Asociación Cabanista ",
+    "nombreDelEpicentro": "Asociación Cabanista ",
     "latitud": -11.870369804121000,
     "longitud": -77.07137239626550
   },
   {
-    "Nombre del Epicentro": "Hospital Chalaco ",
+    "nombreDelEpicentro": "Hospital Chalaco ",
     "latitud": -11.828633279475900,
     "longitud": -77.11888621160770
   },
   {
-    "Nombre del Epicentro": "Parque Principal ",
+    "nombreDelEpicentro": "Parque Principal ",
     "latitud": -11.82412287622400,
     "longitud": -77.1298038883156
   },
   {
-    "Nombre del Epicentro": "Centro Medico Laura Caller",
+    "nombreDelEpicentro": "Centro Medico Laura Caller",
     "latitud": -11.97014274940540,
     "longitud": -77.0771427803630
   },
   {
-    "Nombre del Epicentro": "Shalom ",
+    "nombreDelEpicentro": "Shalom ",
     "latitud": -11.975494140853600,
     "longitud": -77.07166866317350
   },
   {
-    "Nombre del Epicentro": "Colegio Lev Vigotsky",
+    "nombreDelEpicentro": "Colegio Lev Vigotsky",
     "latitud": -12.040197128668000,
     "longitud": -76.96685576502030
   },
   {
-    "Nombre del Epicentro": "Sukyo Santa Anita",
+    "nombreDelEpicentro": "Sukyo Santa Anita",
     "latitud": -12.04739299308570,
     "longitud" :-76.96046466927530 
   },
   {
-    "Nombre del Epicentro": "1ro de Octubre y Monsefu",
+    "nombreDelEpicentro": "1ro de Octubre y Monsefu",
     "latitud": -12.040509600240900,
     "longitud": -77.06078334044000
     
